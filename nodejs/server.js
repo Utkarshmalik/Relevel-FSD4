@@ -9,14 +9,24 @@ const response={
 //Add Listerner
 
 const listener=function(req,res){
-    console.log("Server is processing your request");
-    // res.setHeader("Content-Type","application/json");
-
- res.setHeader("Content-Type","text/csv");
- res.setHeader("Content-Disposition","attachment;fileName=details.csv");
 
     res.writeHead(200);
-    res.end(`name,rollNumber,school\nUtkarsh,25,DPS`);
+
+    switch(req.url){
+
+        case "/name":
+            res.end('Http Server response : Utkarsh');
+            break;
+        case "/about":
+            res.end("Http Server response : About");
+            break;
+        case "/company":
+            res.end("Http server response : A reputed MNC")
+            break;
+        default:
+            res.end("Http Server response : Incorrect endpoint");
+    }
+
 }
 
 //create a simple server
