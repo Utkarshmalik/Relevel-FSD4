@@ -1,36 +1,30 @@
+const express=require("express");
+const app=express();
 
-const http = require("http");
-
-
-const response={
-    message:"This is JSON response from our HTTP server"
+const db={
+    123:"Utkarsh",
+    567:"Rahul",
+    873:"Shrey"
 }
 
-//Add Listerner
 
-const listener=function(req,res){
+app.get("/",function(req,res){
+    res.send("Express js backend http endpoint is ready !!!");
+});
 
-    res.writeHead(200);
-
-    switch(req.url){
-
-        case "/name":
-            res.end('Http Server response : Utkarsh');
-            break;
-        case "/about":
-            res.end("Http Server response : About");
-            break;
-        case "/company":
-            res.end("Http server response : A reputed MNC")
-            break;
-        default:
-            res.end("Http Server response : Incorrect endpoint");
-    }
-
-}
-
-//create a simple server
-const simpleServer= http.createServer(listener);
+app.get("/name",function(req,res){
+    res.send("Express js backend http endpoint is ready! Name: Utkarsh Malik")
+});
 
 
-simpleServer.listen(8080);
+app.get("/users/:userId",function (req,res){
+
+    const userId=req.params.userId;
+    const UserDetails=db[userId];
+    res.send(`Hello from ${UserDetails}`);
+})
+
+app.listen(8000,()=>{
+    console.log("Application is listening on port 8000");
+})
+
