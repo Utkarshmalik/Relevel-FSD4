@@ -7,6 +7,21 @@ const db={
     873:"Shrey"
 }
 
+app.use(function(req,res,next){
+    console.log(`New request receieved now : ${Date.now()}`);
+    next();
+})
+
+app.use(function(req,res,next){
+    const isAuthenticated=true;
+
+    if(!isAuthenticated){
+        res.status(403).send("Invalid request");
+    }else{
+        next();
+    }
+})
+
 
 app.get("/",function(req,res){
     res.send("Express js backend http endpoint is ready !!!");
@@ -17,11 +32,11 @@ app.get("/name",function(req,res){
 });
 
 
-app.get("/users/:userId",function (req,res){
+app.get(/^\/users\/(\d+)$/,function (req,res){
 
-    const userId=req.params.userId;
-    const UserDetails=db[userId];
-    res.send(`Hello from ${UserDetails}`);
+    const userId=req.params[0];
+   const UserDetails=db[userId];
+   res.send(`Hello from ${UserDetails}`);
 })
 
 app.listen(8000,()=>{
