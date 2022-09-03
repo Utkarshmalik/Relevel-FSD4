@@ -1,4 +1,6 @@
 const express=require("express");
+var morgan = require('morgan')
+
 const app=express();
 
 const db={
@@ -6,6 +8,9 @@ const db={
     567:"Rahul",
     873:"Shrey"
 }
+
+app.use(morgan('combined'));
+
 
 app.use(function(req,res,next){
     console.log(`New request receieved now : ${Date.now()}`);
