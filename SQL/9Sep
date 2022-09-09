@@ -1,0 +1,58 @@
+
+
+
+-- create table users 
+-- (
+--  id INT NOT NULL, 
+--  email VARCHAR(255) NOT NULL,
+--  password VARCHAR(255) NOT NULL,
+--  createdAt DATE
+--  )
+
+-- create table products(
+
+-- id INT NOT NULL, 
+-- name VARCHAR(255) NOT NULL,
+-- category VARCHAR(255) NOT NULL,
+-- price INT NOT NULL,
+-- createdAt DATE,
+-- primary key(id)
+
+-- );
+
+-- create table orders (
+
+-- id INT NOT NULL,
+-- productId INT NOT NULL,
+-- userId INT NOT NULL,
+-- quantity INT NOT NULL,
+-- createdAt DATE,
+-- payment CHAR(1)
+-- );
+
+
+-- insert into users (id,email,password) values (153,'rahul@amazon.com','qwert123');
+-- insert into users (id,email,password) values (15,'sanjay@amazon.com','qwert123');
+-- insert into users (id,email,password) values (16,'temp@amazon.com','qwert123');
+
+-- insert into products (id,name,category,price) values (14351,'Iphone','Mobile Phone',100000);
+-- insert into products (id,name,category,price) values (56455,'Sony bravia','Television',50000);
+-- insert into products (id,name,category,price) values (6546,'Dell','Laptop',150000);
+-- insert into products (id,name,category,price) values (245246,'Lenovo','Laptop',52000);
+-- insert into products (id,name,category,price) values (14351,'samsung galaxy','Mobile Phone',30000);
+
+-- insert into orders (id,productId,userId,quantity) values (123534254,14351,16,5);
+-- insert into orders (id,productId,userId,quantity) values (2356262,6546,15,1);
+-- insert into orders (id,productId,userId,quantity) values (22462626,245246,153,3);
+
+-- select * from users;
+-- select * from products;
+-- select * from orders;
+
+
+-- select category,count(*) from products group by category;
+
+
+--  select * from products where category='Laptop' and price = (select max(price) from products where category='Laptop');
+
+-- select * from (select category,count(*) as count1 from products group by category) where count1 = (select max(count(*)) as maxCount from products group by category);
