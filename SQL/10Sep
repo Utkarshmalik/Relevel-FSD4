@@ -1,0 +1,28 @@
+   
+   
+   -- select id,name,category,price from products order by price asc;
+
+--   select * from products where id not in (select distinct productId from orders);
+
+    -- select productId,count(*) from orders group by productId;
+    
+    
+    -- select orders.id as orderId, productid,name as productName, category,price from orders join products  on orders.productid = products.id;
+    
+    
+    
+    
+    -- select ProductId, name,price,orderCount from (select productId,count(*) as orderCount from orders group by productId) a  join products b on a.productId = b.id;
+    
+    --  select category , count(orderId) from  (select category,o.id as orderId   from products p left join orders o on p.id=o.productId) group by category ;
+    
+    --  select category,count(*) as orderCount from  (select category from products p  join orders o on p.id=o.productId) group by category;
+    
+    -- select a.id,email from users a left join orders b on a.id=b.userId;
+    
+    --  select id as userId,email,count(*) as orderPlaced from (select a.id as id,email from users a left join orders b on a.id=b.userId) group by id,email;
+    
+    -- select userId,email,totalSpent from users a join (select userId,sum(total) as totalSpent from  (select p.id as productId, o.userId as userId ,price* quantity as total from products p join orders o on p.id=o.productId) group by userId)
+    --  b on a.id=b.userId;
+    
+    
