@@ -23,4 +23,19 @@ describe("Calculator tests",()=>{
         expect(result).toBe(9);
     })
     
+    test("division of two numbers when den is zero",()=>{
+        var result = mathOperations.divide(45,0);
+        expect(result).toBe(Infinity);
+    })
+
+    test("division of two numbers when num is zero",()=>{
+        var result = mathOperations.divide(0,5);
+        expect(result).toBe(0);
+    })
+
+    test("division of two numbers when num and den are zero",()=>{
+        var result = mathOperations.divide(0,0);
+        expect(result).toBe(NaN);
+    })
+
 })
